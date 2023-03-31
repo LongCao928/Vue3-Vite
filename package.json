@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "description": "基于vite打包的vue3项目",
   "scripts": {
     "dev": "vite --open",
     "build": "vite build",
