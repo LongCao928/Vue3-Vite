@@ -1,5 +1,8 @@
 <script setup>
+import _ from 'lodash'
 import HelloWorld from './components/HelloWorld.vue'
+
+console.log(_.join([1, 2, 3, 4, 5], '~'))
 </script>
 
 <template>
@@ -15,7 +18,7 @@ import HelloWorld from './components/HelloWorld.vue'
       <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
     </a>
   </div>
-  <HelloWorld msg="Vite + Vue" />
+  <HelloWorld msg="Vite + Vue3" />
 </template>
 
 <style scoped>
