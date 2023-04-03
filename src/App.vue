@@ -1,6 +1,6 @@
 <script setup>
-import _ from 'lodash'
-import HelloWorld from './components/HelloWorld.vue'
+// import _ from 'lodash'
+import HelloWorld from '@/components/HelloWorld.vue'
 
 console.log(_.join([1, 2, 3, 4, 5], '~'))
 </script>

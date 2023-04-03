@@ -8,6 +8,9 @@ import legacy from '@vitejs/plugin-legacy'
 // import image from '@rollup/plugin-image'
 // @vitejs/plugin-vue: Vue3 单文件组件支持
 import vue from '@vitejs/plugin-vue'
+import path from 'path'
+// webpack 中使用 ProvidePlugin 提前注入相关依赖，vite使用 @rollup/plugin-inject 代替。
+import inject from '@rollup/plugin-inject'
 
 // @vitejs/plugin-vue-jsx 提供 Vue 3 JSX 支持（通过 专用的 Babel 转换插件）
 // @vitejs/plugin-vue2 提供对 Vue 2 的单文件组件支持。
@@ -33,6 +36,40 @@ import vue from '@vitejs/plugin-vue'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  // 共享选项
+  resolve: {
+    // 在项目中引用文件路径别名配置
+    alias: ({
+      '@': path.resolve(__dirname, './src'),
+    })
+  },
+  plugins: [
+    vue(),
+    // 为传统浏览器提供支持，@vitejs/plugin-legacy
+    legacy({
+      targets: ['defaults', 'not IE 11']
+    }),
+    // 为了与某些 Rollup 插件兼容，可能需要强制修改插件的执行顺序，或者只在构建时使用。(这应该是 vite 插件的实现细节)
+    // 可以通过 enforce 修饰符来强制插件的位置：
+    // pre：在 Vite 核心插件之前调用该插件
+    // 默认：在 Vite 核心插件之后调用该插件
+    // post：在 Vite 构建插件之后调用该插件
+    // {
+      // ...image(),
+      // enforce: 'pre',
+      // apply: 'serve'
+    // }
+    // 默认情况下插件在开发(serve)和生产(build)模式都会调用。
+    // 如果插件在服务或构建期间按需使用，使用 apply 属性指明模式。
+
+    // 在webpack中通过 ProvidePlugin 提前注入相关依赖而不需要在页面中显示引入，
+    // 在vite中可以使用 @rollup/plugin-inject 来代替
+    inject({
+      _: 'lodash'
+    })
+  ],
+  // mode: 'development',
+  appType: 'spa',
   // 开发服务器选项
   server: {
     host: 'localhost',
@@ -106,7 +143,6 @@ export default defineConfig({
     // esbuildOptions: '',   // 在部署扫描和优化过程中传递给 esbuild 的选项。
     force: false, // 设置为 true 可以强制依赖预构建，而忽略之前已经缓存过的、已经优化过的依赖。
   },
-  // mode: 'development',
   // build: {
   //   rollupOptions: {
   //     input: {
@@ -114,25 +150,6 @@ export default defineConfig({
   //     }
   //   }
   // }, 
-  plugins: [
-    vue(),
-    // 为传统浏览器提供支持，@vitejs/plugin-legacy
-    legacy({
-      targets: ['defaults', 'not IE 11']
-    }),
-    // 为了与某些 Rollup 插件兼容，可能需要强制修改插件的执行顺序，或者只在构建时使用。(这应该是 vite 插件的实现细节)
-    // 可以通过 enforce 修饰符来强制插件的位置：
-    // pre：在 Vite 核心插件之前调用该插件
-    // 默认：在 Vite 核心插件之后调用该插件
-    // post：在 Vite 构建插件之后调用该插件
-    // {
-      // ...image(),
-      // enforce: 'pre',
-      // apply: 'serve'
-    // }
-    // 默认情况下插件在开发(serve)和生产(build)模式都会调用。
-    // 如果插件在服务或构建期间按需使用，使用 apply 属性指明模式。
-  ],
 })
 
 
