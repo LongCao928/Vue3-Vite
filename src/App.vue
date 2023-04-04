@@ -1,8 +1,25 @@
 <script setup>
+import { ref } from 'vue'
 // import _ from 'lodash'
 import HelloWorld from '@/components/HelloWorld.vue'
-
 console.log(_.join([1, 2, 3, 4, 5], '~'))
+
+const selectValue = ref('')
+
+const options = [
+  {
+    value: '1',
+    label: '选项一',
+  },
+  {
+    value: '2',
+    label: '选项二',
+  },
+  {
+    value: '3',
+    label: '选项三',
+  },
+]
 </script>
 
 <template>
@@ -19,6 +36,15 @@ console.log(_.join([1, 2, 3, 4, 5], '~'))
     </a>
   </div>
   <HelloWorld msg="Vite + Vue3" />
+
+  <el-select v-model="selectValue">
+    <el-option v-for="item in options"
+      :key="item.value"
+      :label="item.label"
+      :value="item.value"
+    >
+    </el-option>
+  </el-select>
 </template>
 
 <style scoped>
