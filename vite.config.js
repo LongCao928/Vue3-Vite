@@ -66,7 +66,16 @@ export default defineConfig({
     // 在webpack中通过 ProvidePlugin 提前注入相关依赖而不需要在页面中显示引入，
     // 在vite中可以使用 @rollup/plugin-inject 来代替
     inject({
-      _: 'lodash'
+      _: 'lodash',
+      // include: [/src/],
+      exclude: [
+        // './node_modules/element-plus/dist/index.css',
+        // './node_modules/vite/dist/client/client.mjs',
+        // './node_modules/vite/dist/client/env.mjs'
+        /node_modules/,
+        /dist/,
+        /.vscode/
+      ]
     })
   ],
   // mode: 'development',

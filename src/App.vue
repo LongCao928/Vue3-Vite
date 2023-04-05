@@ -37,22 +37,22 @@ const options = [
   </div>
   <HelloWorld msg="Vite + Vue3" />
 
-  <!-- <el-select v-model="selectValue">
+  <el-select v-model="selectValue">
     <el-option v-for="item in options"
       :key="item.value"
       :label="item.label"
       :value="item.value"
     >
     </el-option>
-  </el-select> -->
-  <p>
+  </el-select>
+  <p class="navgation">
     <router-link to="/">Go to Home</router-link>
     <router-link to="/about">Go to About</router-link>
   </p>
   <router-view></router-view>
 </template>
 
-<style scoped>
+<style scoped >
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -64,5 +64,8 @@ const options = [
 }
 .logo.vue:hover {
   filter: drop-shadow(0 0 2em #42b883aa);
+}
+.navgation a:first-child {
+  margin-right: 10px;
 }
 </style>
