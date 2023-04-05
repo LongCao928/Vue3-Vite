@@ -37,14 +37,19 @@ const options = [
   </div>
   <HelloWorld msg="Vite + Vue3" />
 
-  <el-select v-model="selectValue">
+  <!-- <el-select v-model="selectValue">
     <el-option v-for="item in options"
       :key="item.value"
       :label="item.label"
       :value="item.value"
     >
     </el-option>
-  </el-select>
+  </el-select> -->
+  <p>
+    <router-link to="/">Go to Home</router-link>
+    <router-link to="/about">Go to About</router-link>
+  </p>
+  <router-view></router-view>
 </template>
 
 <style scoped>

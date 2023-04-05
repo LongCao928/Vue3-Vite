@@ -41,6 +41,7 @@ export default defineConfig({
     // 在项目中引用文件路径别名配置
     alias: ({
       '@': path.resolve(__dirname, './src'),
+      'vue': 'vue/dist/vue.esm-bundler.js',
     })
   },
   plugins: [
