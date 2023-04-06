@@ -80,6 +80,20 @@ export default defineConfig({
   ],
   // mode: 'development',
   appType: 'spa',
+  // 引入全局基础less变量
+  css: {
+    preprocessorOptions: {
+      less: {
+        // 所有预处理器选项还支持 additionalData 选项，可以用于为每个样式内容注入额外代码。
+        // additionalData: '@import "./src/assets/less/reset.less";@import "./src/assets/less/common.less";',
+        // 实现主题换肤
+        // modifyVars: {
+        //   hack: `true; @import (reference) "${path.resolve("src/assets/css/base.less")}";`,
+        // },
+        javascriptEnabled: true,
+      }
+    }
+  },
   // 开发服务器选项
   server: {
     host: 'localhost',

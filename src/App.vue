@@ -52,20 +52,30 @@ const options = [
   <router-view></router-view>
 </template>
 
-<style scoped >
+<style scoped lang="less">
 .logo {
   height: 6em;
   padding: 1.5em;
   will-change: filter;
   transition: filter 300ms;
+  &:hover {
+    filter: drop-shadow(0 0 2em #646cffaa);
+  }
+  &.vue:hover {
+    filter: drop-shadow(0 0 2em #42b883aa);
+  }
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
-.navgation a:first-child {
-  margin-right: 10px;
+// .logo:hover {
+//   filter: drop-shadow(0 0 2em #646cffaa);
+// }
+// .logo.vue:hover {
+//   filter: drop-shadow(0 0 2em #42b883aa);
+// }
+.navgation  {
+  a {
+    &:first-child {
+      margin-right: 10px;
+    }
+  }
 }
 </style>
