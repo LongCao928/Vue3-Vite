@@ -1,10 +1,14 @@
 import { createApp } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
+import { createPinia } from 'pinia'
+import { registerStore }  from '@/store'
 import ElementPlus from 'element-plus'
 import zhCn from 'element-plus/lib/locale/lang/zh-cn'
 import 'element-plus/dist/index.css'
 import './style.css'
 import App from './App.vue'
+
+const pinia = createPinia()
 
 const app = createApp(App)
 
@@ -21,7 +25,19 @@ const router = createRouter({
     routes
 })
 
+router.beforeEach((to, from, next) => {
+    console.log(to)
+    console.log(from)
+    if(true) {
+        next()
+    } else next('/login')
+})
+
 app.use(router)
+
+app.use(pinia)
+// 注册 pinia 组件库
+registerStore()
 
 app.use(ElementPlus, { locale: zhCn })
 
