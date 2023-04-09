@@ -47,4 +47,7 @@ npm run preview
   │─ style.css 样式文件
   ├─ components // 组件       
   ├─ assets // 静态资源
+  ├─ pages // 页面
+  ├─ router // 路由
+  ├─ store // pinia状态
 ```
