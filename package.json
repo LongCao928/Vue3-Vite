@@ -14,7 +14,7 @@
     "prettier:write": "prettier --config .prettierrc.cjs --check \"src/**/*.{js,ts,css,vue}\" --write",
     "eslint:check": "eslint --ext .js,.vue",
     "eslint:fix": "eslint --ext .js,.vue --fix",
-    "lint": "eslint --ext .js,.ts,.vue --ignore-path .gitignore --fix src",
+    "lint": "eslint --ext .js,.ts,.vue",
     "lint-fix": "eslint --fix ./src --ext .vue,.js,.ts",
     "format": "prettier .  --write",
     "prepare": "husky install"
