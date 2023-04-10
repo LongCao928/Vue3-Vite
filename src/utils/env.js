@@ -6,6 +6,7 @@ const isDev = import.meta.env.DEV ? true : false
 const isTest = STAGE === 'TEST' && !isDev
 const isBeta = STAGE === 'BETA'
 const isProd = STAGE === 'PROD'
+console.log(isTest)
 
 // export const TOKEN = process.env.VUE_APP_TOKEN
 
