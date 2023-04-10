@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue'
-import { storeToRefs } from 'pinia';
+import { storeToRefs } from 'pinia'
 // import {useUserStore} from '@/store/modules/user'
 import appStore from '@/store'
 // import _ from 'lodash'
@@ -64,7 +64,8 @@ const options = [
   <HelloWorld msg="Vite + Vue3" />
 
   <el-select v-model="selectValue">
-    <el-option v-for="item in options"
+    <el-option
+      v-for="item in options"
       :key="item.value"
       :label="item.label"
       :value="item.value"
@@ -98,7 +99,7 @@ const options = [
 // .logo.vue:hover {
 //   filter: drop-shadow(0 0 2em #42b883aa);
 // }
-.navgation  {
+.navgation {
   a {
     &:first-child {
       margin-right: 10px;

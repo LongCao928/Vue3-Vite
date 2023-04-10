@@ -1,5 +1,5 @@
 import { ref, computed } from 'vue'
-import { defineStore } from "pinia";
+import { defineStore } from 'pinia'
 
 // defineStore 返回值可以进行任意命名，但最好使用 store 的名字。
 // 同时以 use 开头， store 结尾。(比如：`useUserStore`，`useCartStore`，`useProductStore`)
@@ -24,11 +24,13 @@ import { defineStore } from "pinia";
 })*/
 
 export const useUserStore = defineStore('user', () => {
-    // 在 Setup Store 中，ref() 就是 state 属性，computed() 就是 getters，function() 就是 actions。
-    const age = ref(20)
-    const double = computed(() => { return age.value * 2})
-    function increment() {
-        age.value++
-    }
-    return { age, double, increment }
+  // 在 Setup Store 中，ref() 就是 state 属性，computed() 就是 getters，function() 就是 actions。
+  const age = ref(20)
+  const double = computed(() => {
+    return age.value * 2
+  })
+  function increment() {
+    age.value++
+  }
+  return { age, double, increment }
 })

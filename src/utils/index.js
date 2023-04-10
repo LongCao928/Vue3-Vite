@@ -17,7 +17,6 @@ function getErrmsg(resp) {
   return msg.replace(/\n/g, '<br>')
 }
 
-
 /**
  * 生成一个标准的错误对象，提供给Promise的reject函数
  * @param {Object} resp
@@ -41,11 +40,10 @@ export default {
     if (typeof ms !== 'number') {
       throw new Error('param must be a number')
     }
-    return new Promise(res => {
+    return new Promise((res) => {
       setTimeout(res, ms)
     })
   },
-
 
   /**
    * 获取token租户参数
@@ -55,10 +53,8 @@ export default {
     return process.env.VUE_APP_TOKEN || Config.defaultToken
   },
 
-
   getErrmsg,
   makeError,
-
 
   /**
    * 使用请求生成一个标准的服务
@@ -74,7 +70,7 @@ export default {
           if (resp.errcode == Config.errcode.ACCESS_DENY) {
             const type = options.notAuthJumpType || 'replace'
             router[type]({
-              name: 'AccessDeny'
+              name: 'AccessDeny',
             })
           } else {
             let e = makeError(resp)
@@ -98,8 +94,15 @@ export default {
   async downloadService(request, extra, defaultFileName = 'result.xlsx') {
     try {
       let resp = await request
-      let match = extra && extra.resp && (extra.resp.headers['content-disposition'] || '').match(/filename[^;=\n]*=["']?([^"';]*)["';]?/)
-      let fileName = (match && match.length >= 2 && decodeURIComponent(match[1])) || defaultFileName
+      let match =
+        extra &&
+        extra.resp &&
+        (extra.resp.headers['content-disposition'] || '').match(
+          /filename[^;=\n]*=["']?([^"';]*)["';]?/
+        )
+      let fileName =
+        (match && match.length >= 2 && decodeURIComponent(match[1])) ||
+        defaultFileName
       const url = window.URL.createObjectURL(new Blob([resp]))
       const link = document.createElement('a')
       link.href = url
@@ -116,7 +119,7 @@ export default {
    * @param {Object} tree
    * @param {Function} fn
    */
-  travTree(tree, fn = function () { }, childrenName = 'children') {
+  travTree(tree, fn = function () {}, childrenName = 'children') {
     function trav(node, parent) {
       fn(node, parent)
       if (node[childrenName] && node[childrenName].length > 0) {
@@ -147,7 +150,6 @@ export default {
     return string.replace(reg, '')
   },
 
-
   /**
    * 滚动到第一个错误点
    */
@@ -164,7 +166,7 @@ export default {
         }
       })
       $('html, body').animate({
-        scrollTop: min - top
+        scrollTop: min - top,
       })
       return true
     }
@@ -179,7 +181,7 @@ export default {
   scrollTo(pos, isForceScrollUp = false) {
     if (isForceScrollUp && window.scrollY < pos) return
     $('html, body').animate({
-      scrollTop: pos
+      scrollTop: pos,
     })
   },
 
@@ -201,7 +203,9 @@ export default {
     let eleHeight = $ele.outerHeight()
     let currentScrollTop = parentElement.scrollTop()
     // eslint-disable-next-line max-len
-    let offsetTop = relative ? $ele.offset().top - parentElement.offset().top + currentScrollTop : $ele.offset().top
+    let offsetTop = relative
+      ? $ele.offset().top - parentElement.offset().top + currentScrollTop
+      : $ele.offset().top
     let topLimit = offsetTop - top
     if (topLimit < 0) topLimit = 0
     let bottomLimit = offsetTop + eleHeight + top - winHeight
@@ -214,7 +218,7 @@ export default {
     }
     if (target) {
       parentElement.animate({
-        scrollTop: target
+        scrollTop: target,
       })
     }
   },
@@ -291,7 +295,8 @@ export default {
         return '请输入大于零的数值'
       }
       return ''
-    } if (value == '' || value == undefined) {
+    }
+    if (value == '' || value == undefined) {
       return `${target}不能为空`
     }
     let errmsg = `最多包含${i}位整数`
@@ -300,7 +305,6 @@ export default {
     }
     return errmsg
   },
-
 
   /**
    * 折叠月份
@@ -325,12 +329,14 @@ export default {
         }
       }
     })
-    return result.map(item => {
-      if (item.length == 1) {
-        return item[0]
-      }
-      return `${item[0]}-${_.last(item)}`
-    }).join(',')
+    return result
+      .map((item) => {
+        if (item.length == 1) {
+          return item[0]
+        }
+        return `${item[0]}-${_.last(item)}`
+      })
+      .join(',')
   },
 
   /**
@@ -340,9 +346,8 @@ export default {
    * @param {Function} compare
    */
   findKey(obj, value, compare = (a, b) => a === b) {
-    return Object.keys(obj).find(k => compare(obj[k], value))
+    return Object.keys(obj).find((k) => compare(obj[k], value))
   },
-
 
   /**
    * 判断证件类型
@@ -353,27 +358,27 @@ export default {
       case -1:
         return {
           name: '无',
-          type: parseInt(type, 10)
+          type: parseInt(type, 10),
         }
       case 0:
         return {
           name: '大陆身份证',
-          type: parseInt(type, 10)
+          type: parseInt(type, 10),
         }
       case 1:
         return {
           name: '港澳台身份证',
-          type: parseInt(type, 10)
+          type: parseInt(type, 10),
         }
       case 2:
         return {
           name: '护照',
-          type: parseInt(type, 10)
+          type: parseInt(type, 10),
         }
       case 3:
         return {
           name: '军官证',
-          type: parseInt(type, 10)
+          type: parseInt(type, 10),
         }
     }
   },
@@ -413,7 +418,8 @@ export default {
     let temp = len
     let res = Number(num).toFixed(len)
     for (let i = 1; temp > 0; temp--, i++) {
-      if (Number(tempStr[1].substr(temp - 1, 1)) === 0) { // 末尾为0,则砍去末尾
+      if (Number(tempStr[1].substr(temp - 1, 1)) === 0) {
+        // 末尾为0,则砍去末尾
         res = Number(res).toFixed(tempStr[1].length - i)
       } else {
         break
@@ -446,7 +452,8 @@ export default {
    * @param {Array} text 数组 需要检查的字段数组
    * @param {Object} obj 对象 需要检查的对象
    */
-  checkParaIsNullOrEmpty(paraArr, obj) { // 检测对象某个值是否为空
+  checkParaIsNullOrEmpty(paraArr, obj) {
+    // 检测对象某个值是否为空
     return paraArr.every((key) => {
       return ![undefined, null, ''].includes(obj[key])
     })
@@ -460,8 +467,12 @@ export default {
    */
   copyObjKeys(paraArr, obj, bool = true) {
     const res = {}
-    paraArr.map(item => {
-      if (Object.prototype.toString.call(obj[item]) == '[object Array]' && obj[item].length > 0 && bool) {
+    paraArr.map((item) => {
+      if (
+        Object.prototype.toString.call(obj[item]) == '[object Array]' &&
+        obj[item].length > 0 &&
+        bool
+      ) {
         res[item] = obj[item][0]
       } else {
         res[item] = obj[item]
@@ -510,7 +521,9 @@ export default {
 
   // 检查是否是合法的泊寓域名
   isValidSelfUrl(url) {
-    return /^http(s?):\/\/(.+\.)?inboyu\.com(\/.*)?$/.test(decodeURIComponent(url))
+    return /^http(s?):\/\/(.+\.)?inboyu\.com(\/.*)?$/.test(
+      decodeURIComponent(url)
+    )
   },
 
   /**
@@ -535,9 +548,13 @@ export default {
    * @param {object,array} params
    */
   simpleDeepCopy(params) {
-    if (['[object Object]', '[object Array]'].includes(Object.prototype.toString.call(params))) {
+    if (
+      ['[object Object]', '[object Array]'].includes(
+        Object.prototype.toString.call(params)
+      )
+    ) {
       return JSON.parse(JSON.stringify(params))
     }
     throw new Error('is not object or array')
-  }
+  },
 }

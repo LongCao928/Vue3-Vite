@@ -1,7 +1,7 @@
 import { createApp } from 'vue'
 // import { createRouter, createWebHistory } from 'vue-router'
 import { createPinia } from 'pinia'
-import { registerStore }  from '@/store'
+import { registerStore } from '@/store'
 import ElementPlus from 'element-plus'
 import zhCn from 'element-plus/lib/locale/lang/zh-cn'
 import 'element-plus/dist/index.css'
