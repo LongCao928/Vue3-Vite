@@ -1,6 +1,4 @@
-
 // 当以命令行方式运行 vite 时，Vite 会自动解析项目根目录下名为 vite.config.js 的文件。--config 选项指定配置文件。
-
 
 import { defineConfig } from 'vite'
 // import { resolve } from 'path'
@@ -39,16 +37,16 @@ export default defineConfig({
   // 共享选项
   resolve: {
     // 在项目中引用文件路径别名配置
-    alias: ({
+    alias: {
       '@': path.resolve(__dirname, './src'),
-      'vue': 'vue/dist/vue.esm-bundler.js',
-    })
+      vue: 'vue/dist/vue.esm-bundler.js',
+    },
   },
   plugins: [
     vue(),
     // 为传统浏览器提供支持，@vitejs/plugin-legacy
     legacy({
-      targets: ['defaults', 'not IE 11']
+      targets: ['defaults', 'not IE 11'],
     }),
     // 为了与某些 Rollup 插件兼容，可能需要强制修改插件的执行顺序，或者只在构建时使用。(这应该是 vite 插件的实现细节)
     // 可以通过 enforce 修饰符来强制插件的位置：
@@ -56,9 +54,9 @@ export default defineConfig({
     // 默认：在 Vite 核心插件之后调用该插件
     // post：在 Vite 构建插件之后调用该插件
     // {
-      // ...image(),
-      // enforce: 'pre',
-      // apply: 'serve'
+    // ...image(),
+    // enforce: 'pre',
+    // apply: 'serve'
     // }
     // 默认情况下插件在开发(serve)和生产(build)模式都会调用。
     // 如果插件在服务或构建期间按需使用，使用 apply 属性指明模式。
@@ -74,9 +72,9 @@ export default defineConfig({
         // './node_modules/vite/dist/client/env.mjs'
         /node_modules/,
         /dist/,
-        /.vscode/
-      ]
-    })
+        /.vscode/,
+      ],
+    }),
   ],
   // mode: 'development',
   appType: 'spa',
@@ -88,14 +86,14 @@ export default defineConfig({
         // additionalData: '@import "./src/assets/less/reset.less";@import "./src/assets/less/common.less";',
         // 实现主题换肤
         // modifyVars: {
-          // hack: `true; @import (reference) "${path.resolve("src/assets/css/base.less")}";`,
+        // hack: `true; @import (reference) "${path.resolve("src/assets/css/base.less")}";`,
         // },
         javascriptEnabled: true,
       },
       scss: {
         //  additionalData: '@import "./src/assets/scss/globalVar.scss";@import "./src/assets/scss/globalMixin.scss";'
-      }
-    }
+      },
+    },
   },
   // 开发服务器选项
   server: {
@@ -120,13 +118,13 @@ export default defineConfig({
     // Vite 替换为 ['es2020', 'edge88', 'firefox78', 'chrome87', 'safari14']
     // 转换过程由 esbuild 执行，并且此值应该是一个合法的 esbuild 目标选项。
     // 自定义目标也可以是一个 ES 版本（例如：es2015）、一个浏览器版本（例如：chrome58）或是多个目标组成的一个数组。
-    target: 'modules', 
+    target: 'modules',
     outDir: 'dist', // 指定输出路径(相对于项目根目录)
     assetsDir: 'assets', // 指定生成静态资源的存放路径（相对于 build.outDir）。在 库模式 下不能使用。
     assetsInlineLimit: 4096, // 小于此阈值的导入或引用资源将内联为 base64 编码，以避免额外的 http 请求。设置为 0 可以完全禁用此项。
     // cssCodeSplit启用/禁用 CSS 代码拆分。当启用时，在异步 chunk 中导入的 CSS 将内联到异步 chunk 本身，并在其被加载时插入。
     // 如果禁用，整个项目中的所有 CSS 将被提取到一个 CSS 文件中。
-    cssCodeSplit: true, 
+    cssCodeSplit: true,
     // cssTarget: 'modules', // 此选项允许用户为 CSS 的压缩设置一个不同的浏览器 target，此处的 target 并非是用于 JavaScript 转写目标。
     sourcemap: false, // 构建后是否生成 source map 文件。 boolean | 'inline' | 'hidden'
     // manifest 设置为 true，构建后将会生成 manifest.json 文件，包含了没有被 hash 过的资源文件名和 hash 后版本的映射。
@@ -153,9 +151,9 @@ export default defineConfig({
     // 如果 key 以 ^ 开头，它将被识别为 RegExp，其中 configure 选项可用于访问代理实例。
     proxy: {},
     // 为开发服务器配置 CORS。此功能默认启用并支持任何来源。
-    // cors: server.cors, 
+    // cors: server.cors,
     // 指明服务器返回的响应头。
-    headers: {}
+    headers: {},
   },
   // 优化依赖选项
   optimizeDeps: {
@@ -176,14 +174,12 @@ export default defineConfig({
 
   //     }
   //   }
-  // }, 
+  // },
 })
-
 
 // 在本地查看该构建产物是否正常可用。
 // npm run build 打包完成后，运行 npm run preview 在本地测试该应用。
 // vite preview 会在本地启动一个静态 Web 服务器，将 dist 文件夹运行在 http://localhost:4173。(--port 配置运行端口)
-
 
 /* 环境变量
  * vite 在一个特殊的 import.meta.env 对象上暴露环境变量。下面是一些在所有情况下都可以使用的内建变量：
@@ -192,65 +188,48 @@ export default defineConfig({
  * import.meta.env.PROD: {boolean}是否运行在生产环境
  * import.meta.env.DEV: {boolean}是否运行在开发环境(永远与 import.meta.env.PROD 相反)
  * import.meta.env.SSR: {boolean}应用是否运行在server上
- * 
+ *
  * 在生产环境中，这些环境变量会在构建时被静态替换，因此在使用它们时请使用完全静态的字符串。动态的 key 将无法生效。
  * 例如，动态 key 取值 import.meta.env[key] 是无效的。
  * 它还将替换出现在 JavaScript 和 Vue 模板中的字符串。
  * 对于 Javascript 字符串，可以使用 unicode 零宽度空格来分割这个字符串：'import.meta\u200b.env.MODE'。
  * 对于 Vue 模块或其他编译到 JavaScript 字符串的 HTML，可以使用 <wbr> 标签：import.meta.<wbr>env.MODE。
- * 
+ *
  * .env文件
  * - .env 所有情况下都会加载
  * - .env.local 所有情况下都会加载，但会被 git 忽略
  * - .env.[mode] 只在指定模式下加载
  * - .env.[mode].local 只在指定模式下加载，但会被 git 忽略
- * 
+ *
  * 一份用于指定模式的文件（例如 .env.production）会比通用形式的优先级更高（例如 .env）。
  * .env 类文件会在 Vite 启动一开始时被加载，而改动会在重启服务器后生效。
- * 
+ *
  * 加载的环境变量也会通过 import.meta.env 以字符串形式暴露给客户端源码。
  * 为了防止意外地将一些环境变量泄漏到客户端，只有以 _VITE 为前缀的变量才会暴露给经过 vite 处理的代码。
- * 
+ *
  * 请注意，如果想要在环境变量中使用 $ 符号，则必须使用 \ 对其进行转义。
- * 
+ *
  * vite 还支持在 html 文件中替换环境变量。 import.meta.env 中的任何属性都可以通过特殊的 %ENV_NAME% 语法在 html 文件中使用。
  * <h1>Vite is running in %MODE%</h1>
  * <p>Using data from %VITE_API_URL%</p>
  * 如果环境变量不存在，则会被忽略而不替换。
  */
 
-
 /* 模式
  * 默认情况下，开发服务器 (dev 命令) 运行在 development （开发）模式，build 命令运行在 production（生产）模式。
  * 这意味着 vite build 时，它会自动加载 .env.production 中可能存在的环境变量。
  * --mode 选项标志来覆盖命令使用的默认模式。
  * vite build --mode staging (新建一个.env.staging 文件)
- * 
+ *
  * 通过使用不同的模式和对应的 .env 文件配置来改变 vite build，用以运行开发模式的构建。
  * # .env.testing
  * NODE_ENV=development
  */
-
 
 /* 环境变量通常可以从 process.env 获得。
  * vite 默认是不加载 .env 文件，因为这些文件需要在执行完 vite 配置后才能确定加载哪一个。
  * 当你的确需要时，可以使用 vite 导出的 loadEnv 函数来加载指定的 .env 文件。
  */
 
-
 // resolve.extensions 导入时想要省略的扩展名列表。
 // 默认：['.mjs', '.js', '.mts', '.ts', '.jsx', '.tsx', '.json']
-
-
-
-
-
-
-
-
-
-
-
-
-
-

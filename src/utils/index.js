@@ -119,7 +119,7 @@ export default {
    * @param {Object} tree
    * @param {Function} fn
    */
-  travTree(tree, fn = function () {}, childrenName = 'children') {
+  travTree(tree, fn = function () { }, childrenName = 'children') {
     function trav(node, parent) {
       fn(node, parent)
       if (node[childrenName] && node[childrenName].length > 0) {

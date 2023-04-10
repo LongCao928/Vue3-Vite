@@ -1,14 +1,14 @@
-import { createApp } from "vue"
+import { createApp } from 'vue'
 // import { createRouter, createWebHistory } from 'vue-router'
-import { createPinia } from "pinia"
-import { registerStore } from "@/store"
-import ElementPlus from "element-plus"
-import zhCn from "element-plus/lib/locale/lang/zh-cn"
-import "element-plus/dist/index.css"
-import "./style.css"
-import App from "./App.vue"
+import { createPinia } from 'pinia'
+import { registerStore } from '@/store'
+import ElementPlus from 'element-plus'
+import zhCn from 'element-plus/lib/locale/lang/zh-cn'
+import 'element-plus/dist/index.css'
+import './style.css'
+import App from './App.vue'
 
-import router from "./router"
+import router from './router'
 
 // components
 // import './components/all'
@@ -46,4 +46,4 @@ registerStore()
 
 app.use(ElementPlus, { locale: zhCn })
 
-app.mount("#app")
+app.mount('#app')

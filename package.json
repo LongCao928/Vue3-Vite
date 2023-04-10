@@ -16,6 +16,7 @@
     "eslint:fix": "eslint --ext .js,.vue --fix",
     "lint": "eslint --ext .js,.ts,.vue --ignore-path .gitignore --fix src",
     "lint-fix": "eslint --fix ./src --ext .vue,.js,.ts",
+    "format": "prettier .  --write",
     "prepare": "husky install"
   },
   "dependencies": {

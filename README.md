@@ -6,35 +6,33 @@
 
 - [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
 
-
 ## 开发
 
-* 安装
+- 安装
 
 ```
 npm install
 ```
 
-* 运行
+- 运行
 
 ```
 npm run dev
 ```
 
-* 打包
+- 打包
 
 ```
 npm run build
 ```
 
-* 本地测试
+- 本地测试
 
 ```
 npm run preview
 ```
 
 ## 目录
-
 
 ```
 ├─ .vscode // vscode 配置文件
@@ -45,7 +43,7 @@ npm run preview
   │─ App.vue // 根容器
   │─ main.js
   │─ style.css 样式文件
-  ├─ components // 组件       
+  ├─ components // 组件
   ├─ assets // 静态资源
   ├─ pages // 页面
   ├─ router // 路由
