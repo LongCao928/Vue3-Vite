@@ -12,8 +12,8 @@
     "preview": "vite preview --mode preview",
     "prettier:check": "prettier --config .prettierrc.cjs --check \"src/**/*.{js,ts,css,vue}\"",
     "prettier:write": "prettier --config .prettierrc.cjs --check \"src/**/*.{js,ts,css,vue}\" --write",
-    "eslint:check": "eslint src/*.{js,vue}",
-    "eslint:fix": "eslint src/*.{js,vue} --fix",
+    "eslint:check": "eslint .{js,vue}",
+    "eslint:fix": "eslint .{js,vue} --fix",
     "lint": "eslint --ext .js,.ts,.vue --ignore-path .gitignore --fix src",
     "lint-fix": "eslint --fix ./src --ext .vue,.js,.ts",
     "prepare": "husky install"

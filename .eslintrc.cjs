@@ -4,7 +4,7 @@ module.exports = {
         "es2021": true, // 支持es2021语法的检测
         "node": true // 支持node环境的检测
     },
-    "global": {
+    "globals": {
         _: true
     },
     "extends": [
