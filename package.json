@@ -45,6 +45,21 @@
     "vite": "^4.2.0"
   },
   "lint-staged": {
-    "src/**/*.js": "npm run lint"
+    "src/**/*.js": "npm run lint",
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix"
+    ],
+    "*.vue": [
+      "eslint --fix"
+    ],
+    "*.{html,vue,vss,sass,less}": [
+      "prettier --write"
+    ],
+    "package.json": [
+      "prettier --write"
+    ],
+    "*.md": [
+      "prettier --write"
+    ]
   }
 }
