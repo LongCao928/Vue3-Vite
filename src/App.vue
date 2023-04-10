@@ -1,10 +1,10 @@
 <script setup>
-import { ref } from 'vue'
-import { storeToRefs } from 'pinia'
+import { ref } from "vue"
+import { storeToRefs } from "pinia"
 // import {useUserStore} from '@/store/modules/user'
-import appStore from '@/store'
+import appStore from "@/store"
 // import _ from 'lodash'
-import HelloWorld from '@/components/HelloWorld.vue'
+import HelloWorld from "@/components/HelloWorld.vue"
 
 // 为了从 store 中提取属性时保持其响应性，你需要使用 storeToRefs()。
 // 它将为每一个响应式属性创建引用。当你只使用 store 的状态而不调用任何 action 时，它会非常有用。
@@ -28,24 +28,22 @@ changeCollapse()
 console.log(isCollapse.value)
 
 // 使用 lodash
-console.log(_.join([1, 2, 3, 4, 5], '~'))
+console.log(_.join([1, 2, 3, 4, 5], "~"))
 
-
-
-const selectValue = ref('')
+const selectValue = ref("")
 
 const options = [
   {
-    value: '1',
-    label: '选项一',
+    value: "1",
+    label: "选项一",
   },
   {
-    value: '2',
-    label: '选项二',
+    value: "2",
+    label: "选项二",
   },
   {
-    value: '3',
-    label: '选项三',
+    value: "3",
+    label: "选项三",
   },
 ]
 </script>

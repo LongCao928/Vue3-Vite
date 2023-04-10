@@ -12,10 +12,10 @@
     "preview": "vite preview --mode preview",
     "prettier:check": "prettier --config .prettierrc.cjs --check \"src/**/*.{js,ts,css,vue}\"",
     "prettier:write": "prettier --config .prettierrc.cjs --check \"src/**/*.{js,ts,css,vue}\" --write",
-    "eslint:check": "eslint --config .eslintrc.cjs src/*.js",
-    "eslint:fix": "eslint src/*.js --fix",
+    "eslint:check": "eslint src/*.{js,vue}",
+    "eslint:fix": "eslint src/*.{js,vue} --fix",
     "lint": "eslint --ext .js,.ts,.vue --ignore-path .gitignore --fix src",
-    "lint-fix": "eslint --fix ./src --ext .vue,.js",
+    "lint-fix": "eslint --fix ./src --ext .vue,.js,.ts",
     "prepare": "husky install"
   },
   "dependencies": {
@@ -33,6 +33,8 @@
     "@vitejs/plugin-legacy": "^4.0.2",
     "@vitejs/plugin-vue": "^4.1.0",
     "eslint": "^8.38.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-vue": "^9.10.0",
     "husky": "^8.0.3",
     "less": "^4.1.3",

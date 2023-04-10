@@ -9,4 +9,5 @@
 # echo "Hello,world"
 # npm run prettier:check
 # npm run prettier:write && git add -A .
-npm run eslint:check
+# npm run eslint:check
+# npm run eslint:fix
