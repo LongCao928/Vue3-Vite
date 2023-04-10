@@ -8,20 +8,20 @@ module.exports = {
     _: true,
   },
   extends: [
-    'eslint:recommended', // 使用eslint推荐的配置进行检测
-    'plugin:vue/vue3-essential', // 支持vue3相关语法的检测
-    'plugin:prettier/recommended',
+    "eslint:recommended", // 使用eslint推荐的配置进行检测
+    "plugin:vue/vue3-essential", // 支持vue3相关语法的检测
+    "plugin:prettier/recommended",
   ],
   overrides: [],
   parserOptions: {
-    ecmaVersion: 'latest', // 解析文件的时候使用最新的ecmaVersion
-    sourceType: 'module', // 文件是ES6模块规范
+    ecmaVersion: "latest", // 解析文件的时候使用最新的ecmaVersion
+    sourceType: "module", // 文件是ES6模块规范
   },
-  plugins: ['vue'],
+  plugins: ["vue"],
   rules: {
     // 配置自己项目特有的一些检测规则
-    'comma-spacing': ['error', { before: false, after: true }], // 逗号之间必须有空格
-    quotes: ['error', 'single'],
-    'prettier/prettier': 0, // 会优先采用prettierrc.json的配置，不符合规则会提示错误
+    "comma-spacing": ["error", { before: false, after: true }], // 逗号之间必须有空格
+    // quotes: ['error', 'single'],
+    // 'prettier/prettier': 0, // 会优先采用prettierrc.json的配置，不符合规则会提示错误
   },
 }
