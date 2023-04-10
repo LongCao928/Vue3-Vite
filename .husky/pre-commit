@@ -1,13 +1,12 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-# echo "Hello,world"
-# npm run prettier:check
-npm run prettier:write
-
 # npm test
 # npx lint-staged --allow-empty 
 # npm run lint
 # npx lint-staged
 
-
+# echo "Hello,world"
+# npm run prettier:check
+# npm run prettier:write && git add -A .
+npm run eslint:check

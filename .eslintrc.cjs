@@ -18,5 +18,6 @@ module.exports = {
         "vue"
     ],
     "rules": { // 配置自己项目特有的一些检测规则
+        "comma-spacing": ["error", { "before": false, "after": true }], // 逗号之间必须有空格
     }
 }

@@ -59,5 +59,5 @@ export const Prompt = function prompt(message, title = '提示', opt = {}) {
     opt.confirmButtonClass =
       (opt.confirmButtonClass || '') + 'el-button--danger'
   }
-  return MessageBox.prompt(message, title, opt)
+  return ElMessageBox.prompt(message, title, opt)
 }
