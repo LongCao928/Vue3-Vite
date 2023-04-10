@@ -50,4 +50,6 @@ npm run preview
   ├─ pages // 页面
   ├─ router // 路由
   ├─ store // pinia状态
+  ├─ servers // 服务
+  ├─ utils // 公用方法
 ```
