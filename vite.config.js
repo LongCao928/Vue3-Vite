@@ -149,7 +149,7 @@ export default defineConfig({
     // 开发服务器启动时，自动在浏览器中打开应用程序。
     // 当该值为字符串时，它将被用作 URL 的路径名。
     // 如果你想在你喜欢的某个浏览器打开该开发服务器，你可以设置环境变量 process.env.BROWSER （例如 firefox）。
-    open: 'preview',
+    open: '',
     // 如果 key 以 ^ 开头，它将被识别为 RegExp，其中 configure 选项可用于访问代理实例。
     proxy: {},
     // 为开发服务器配置 CORS。此功能默认启用并支持任何来源。

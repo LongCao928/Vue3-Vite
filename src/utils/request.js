@@ -2,7 +2,6 @@
 import axios from 'axios'
 import qs from 'qs'
 
-// servers/token/toast/
 const baseURL = import.meta.env.VITE_APP_URL
 const envType = import.meta.env.VITE_APP_ENV
 console.log(import.meta.env.VITE_APP_NANE)
