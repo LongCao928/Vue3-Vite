@@ -10,6 +10,8 @@
     "build-beta": "vite build --mode beta",
     "build": "vite build",
     "preview": "vite preview --mode preview",
+    "lint": "eslint --ext .js,.ts,.vue --ignore-path .gitignore --fix src",
+    "lint-fix": "eslint --fix ./src --ext .vue,.js",
     "prepare": "husky install"
   },
   "dependencies": {
