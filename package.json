@@ -45,6 +45,6 @@
     "vite": "^4.2.0"
   },
   "lint-staged": {
-    "*.js": "npm run lint"
+    "*.{js,vue}": "eslint --fix"
   }
 }
