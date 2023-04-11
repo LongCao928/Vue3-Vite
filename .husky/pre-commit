@@ -9,7 +9,7 @@
 # npm run prettier:check
 # npm run prettier:write && git add -A .
 # npm run eslint:check
-npm run eslint:fix
+# npm run eslint:fix
 
 # npx lint-staged
-# npx lint-staged --allow-empty $1
+npx lint-staged --allow-empty 
