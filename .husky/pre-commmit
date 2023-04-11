@@ -11,4 +11,5 @@
 # npm run eslint:check
 # npm run eslint:fix
 
-npx lint-staged
+# npx lint-staged
+npx lint-staged --allow-empty $1
