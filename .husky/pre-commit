@@ -12,4 +12,4 @@
 # npm run eslint:fix
 
 # npx lint-staged
-npx lint-staged --allow-empty -V
+npx lint-staged --allow-empty --version
