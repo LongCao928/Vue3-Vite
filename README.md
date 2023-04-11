@@ -35,10 +35,17 @@ npm run preview
 ## 目录
 
 ```
+├─ .husky // git 钩子
 ├─ .vscode // vscode 配置文件
+├─ public // 根目录静态资源(/访问)
 ├─ .env.xxx // 各环境的配置文件
 ├─ vite.config.ts // 项目配置
 ├─ index.html // 入口文件
+├─ .__ignore // 配置忽略文件
+├─ .eslintrc.cjs // eslint配置
+├─ .prettierrc.cjs // prettier配置
+├─ .package.json // 项目配置文件
+├─ .package-lock.json // 安装的依赖包指定版本(node_modules快照)
 └─ src
   │─ App.vue // 根容器
   │─ main.js
