@@ -11,4 +11,4 @@
 # npm run eslint:check
 # npm run eslint:fix
 
-npx lint-staged --allow-empty
+npx lint-staged
