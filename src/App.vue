@@ -35,41 +35,45 @@ const selectValue = ref('')
 const options = [
   {
     value: '1',
-    label: '选项一',
+    label: '选项一'
   },
   {
     value: '2',
-    label: '选项二',
+    label: '选项二'
   },
   {
     value: '3',
-    label: '选项三',
-  },
+    label: '选项三'
+  }
 ]
 </script>
 
 <template>
   <div>
-    <a href="https://vitejs.dev" target="_blank">
+    <a href="https://vitejs.dev"
+      target="_blank">
       <!-- public 文件夹下的文件位于项目根目录，开发时通过 / 可直接访问到，并且打包时会被完整复制到目标目录的根目录下。 -->
       <!-- 目录默认是 <root>/public，但可以通过 publicDir 选项 来配置。 -->
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
+      <img src="/vite.svg"
+        class="logo"
+        alt="Vite logo" />
       <!-- 引入 public 中的资源永远应该使用根绝对路径 —— 举个例子，public/icon.png 应该在源码中被引用为 /icon.png。 -->
       <!-- public 中的资源不应该被 JavaScript 文件引用。 -->
     </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
+    <a href="https://vuejs.org/"
+      target="_blank">
+      <img src="./assets/vue.svg"
+        class="logo vue"
+        alt="Vue logo" />
     </a>
   </div>
   <HelloWorld msg="Vite + Vue3" />
 
   <el-select v-model="selectValue">
-    <el-option
-      v-for="item in options"
+    <el-option v-for="item in options"
       :key="item.value"
       :label="item.label"
-      :value="item.value"
-    >
+      :value="item.value">
     </el-option>
   </el-select>
   <p class="navgation">
