@@ -1,3 +1,3 @@
 const a = 123;
 const b = 234;
-console.log(a)
+console.log(a, b)
