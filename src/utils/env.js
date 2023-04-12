@@ -6,7 +6,7 @@ const isDev = import.meta.env.DEV ? true : false
 const isTest = STAGE === 'TEST' && !isDev
 const isBeta = STAGE === 'BETA'
 const isProd = STAGE === 'PROD'
-console.log(isTest)
+console.log(ENV, isTest, isBeta, isProd)
 
 // export const TOKEN = process.env.VUE_APP_TOKEN
 
@@ -19,9 +19,9 @@ export const isIOS = UA && /iphone|ipad|ipod|ios/.test(UA)
 export const isChrome = UA && /chrome\/\d+/.test(UA) && !isEdge
 
 const hostMap = {
-  TEST: 'https://rmp-boyu-test.inboyu.com',
-  BRTA: 'https://rmp-boyu-beta.inboyu.com',
-  PROD: 'https://rmp-boyu.inboyu.com',
+  TEST: 'https://github-test.com',
+  BRTA: 'https://github-beta.com',
+  PROD: 'https://github.com',
 }
 
 export const HOST = hostMap[STAGE]
