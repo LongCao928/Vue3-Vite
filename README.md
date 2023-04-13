@@ -39,7 +39,7 @@ npm run preview
 ├─ .vscode // vscode 配置文件
 ├─ public // 根目录静态资源(/访问)
 ├─ .env.xxx // 各环境的配置文件
-├─ vite.config.ts // 项目配置
+├─ vite.config.js // 项目配置
 ├─ index.html // 入口文件
 ├─ .__ignore // 配置忽略文件
 ├─ .eslintrc.cjs // eslint配置
